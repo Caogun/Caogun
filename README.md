@@ -84,5 +84,15 @@ GIT
 1. Setup git
   - sudo apt-get install -y git php php-curl php-xml php-zip php-mbstring php-gd php-sqlite3 php-mysql php-xdebug
 2. 
+int count = 0;
 
+        for (int i = 0; i < words.length; i++) {
+            for (int j = i + 1; j < words.length; j++) {
+                if (words[i].charAt(0) == words[j].charAt(0)) {
+                    count++;
+                }
+            }
+        }
+
+        return count;
 
