@@ -8,4 +8,3 @@
 Caogun/Caogun is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
 --->
-20 november - apps sprint 1 and apps sprint 2 need to finish:
