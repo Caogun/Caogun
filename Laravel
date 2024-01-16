@@ -1150,6 +1150,147 @@ Auto Rename Tag
 Auto Close Tag
 
 
+app1//
+
+Set up development environment
+
+
+Description
+
+VS Code (MS store)
+
+Dbeaver  (MS store)
+
+PHP + MySQL/MariaDB + Apache (WampServer )https://sourceforge.net/projects/wampserver/
+
+Git (Git for Windows )https://gitforwindows.org/
+
+apps2//
+
+Create Laravel app with composer. 
+
+Get familiarized with PHP syntax. 
+
+Create MySQL DB.(can find some useful commands here: MySQL Cheat Sheet )https://gist.github.com/bradtraversy/c831baaad44343cc945e76c2e30927b3
+
+Setup Dbeaver to connect to MySQl.
+
+
+git//
+
+Setup git.
+
+Setup SSH key for bitbucket.
+
+Clone exiting repo 
+
+Create a new branch.
+
+Initiate example app.
+
+Commit example app and publish branch.
+
+Create pull request.
+
+Get PR merge to master.
+
+
+test//
+
+Learn Laravel testing. Laravel - The PHP Framework For Web Artisans https://laravel.com/docs/10.x/testing
+
+Create DB seed and mock data.
+
+create
+
+Initial creation of laravel application with the following static pages :grinning::grinning::
+
+Login Page
+
+Navigation
+
+Dashboard page
+
+Dashboard page contains links to:
+
+ERP (recruit.inscale.net)
+
+Research Portal (research.inscale.net)
+
+Supplier Portal (supplier.inscale.net)
+
+No functionality is needed. 
+
+Set up routes, controllers and views to allow each page to be loaded.
+
+Set up TailwindCSS with identical styling as Candidate Portal.
+
+
+
+learn blade templates//
+
+Learn frontend blade template. 
+
+Learn tailwindcss. (Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.)https://tailwindcss.com/
+
+Setup tailwind in the repo. (Install Tailwind CSS with Laravel - Tailwind CSS)https://tailwindcss.com/docs/guides/laravel
+
+ Create blade templates for the created model operations.
+
+
+oAuth2 Authentication//
+
+
+Description
+
+Implement oAuth2 Authentication
+
+Sign in via Azure AD 
+
+Sign out
+
+Session expiry
+
+Require authenticated users for protected routes:
+
+Sign Out
+
+Dashboard page
+
+Retrieve information from identity provider:
+
+profile picture
+
+name
+
+email
+
+
+
+User Management//
+
+
+
+Description
+
+Create User model, controller and views.
+
+Implement controller actions for:
+
+Browse
+
+Read 
+
+Edit
+
+Add 
+
+Delete
+
+Restrict access to authenticated users only
+
+
+
 
 
 
