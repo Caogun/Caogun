@@ -81,3 +81,1079 @@ int count = 0;
 
         return count;
 
+
+
+views
+@extends('layouts.ForgotPassword')
+
+@section('content')
+
+@endsection
+
+@extends('layouts.LogIn')
+
+@section('content')
+
+@endsection
+
+
+@extends('layouts.DashboardPage')
+
+@section('content')
+
+@endsection
+
+
+
+
+
+
+
+
+
+
+lyouts
+<!doctype html>
+<html>
+<head>
+    <title> Login Page - Research Portal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @vite('resources/css/app.css')
+</head>
+<body> 
+    
+    <div class="w-full h-full bg-no-repeat bg-center  "
+    style="background-image: url(https://www.online-messe.org/wp-content/uploads/inscale-logo.png);">
+        <div class="bg-center">
+        </div>
+        <div class="scale-50 translate-x-60 translate-y-64     ">
+        </div>
+            <form action="{{route('login')}}" method="POST" 
+            class="scale-50 translate-x-60 translate-y-64 "> @csrf 
+            <div>
+                <label class ="block" for="email">
+                    <span class=" font-medium text-slate-900 text-4xl  ">Email</span> </label>
+                    <input type="email" id="email" name="email" 
+                    class="block w-6/12 text-3xl  rounded-md mt-6 px-8 py-8 border
+                    border-slate-950 placeholder-shown:text-3xl rounded-r-lg rounded-l-lg" 
+                    placeholder="Email"  required class="border @error('email') border-red-500 @enderror"><br>
+                @error('email') <p class="text-red-500  text-3xl">{{ $message}}</p> @enderror 
+            </div>
+            <br>
+            <div> 
+                <label class="block" for="password">
+                <span class="font-medium text-slate-900 text-4xl ">Password</span> </label>
+                <input type="password" id="password" name="password"
+                class="block w-6/12 rounded-md mt-6 px-8 py-8 border
+                border-slate-950 text-3xl placeholder-shown:text-3xl  rounded-r-lg rounded-l-lg  " 
+                placeholder="Password" required class="border @error('password') border-red-500 @enderror" > <br>
+                @error('password') <p class="text-red-500 text-3xl">{{ $message}}</p> @enderror 
+            </div>
+            @error('error') <p class="text-red-500 text-3xl">{{ $message}}</p> @enderror 
+            <br>
+            <br>
+            <div class="flex">
+                <button type ="submit" class="block  text-4xl translate-x-50 py-6 rounded-none bg-blue-500 hover:bg-blue-800 
+                shadow-lg shadow-blue-500/50 flex-initial w-6/12 rounded-r-lg rounded-l-lg">
+                <p class="text-white    ">Log In</p></button>
+            </div>
+            <br>
+                <div class="text-3xl text-blue-600   "> 
+                <div> 
+                    <a href="{{ route('password')}}">Forgot your password?</a>
+                </div>
+            </div>
+        <br>
+        <br>
+    </form>
+    </div>   
+    
+    
+    <div class="fl"> 
+    @yield('content')
+
+    <x-copyright/>
+</div>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Forgot Password - Research Portal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    @vite('resources/css/app.css')
+</head>
+<body>
+<div class="translate-x-72   translate-y-80 scale-50 ">
+    <div class=""> 
+    <p class="text-3xl ">Forgot your password? No problem. Just let us know your <br> email 
+        address and we will email you a password reset link <br> that will 
+        allow you to choose a new one.</p>
+    </div>
+<br>
+<br>
+    <div>
+        <label class ="block">
+            <span class=" font-medium text-slate-900 text-4xl ">Email</span> 
+            <input type="email" class="block w-5/12 text-3xl  rounded-md mt-6 px-8 py-5 border
+            border-slate-950 placeholder-shown:text-3xl   rounded-r-lg rounded-l-lg     " placeholder="Email" > <br>
+        </label>
+    </div>
+    <div class="flex">
+        <button type ="" class="block  text-4xl 
+        translate-x-50 py-4 rounded-none bg-blue-500 hover:bg-blue-800 
+        shadow-lg shadow-blue-500/50 flex-initial w-5/12   rounded-r-lg rounded-l-lg">
+        <p class="text-white">Email Password Reset Link</p></button>
+    </div>
+    <br>
+    <br>
+    <div class="text-3xl text-blue-600   "> 
+        <div> 
+            <a href="{{ route('home')}}"> <p class="text-4xl">Log In</p></a>
+        </div>
+    </div>
+
+
+
+</div>
+<div class="fl translate-y-96"> 
+    @yield('content')
+
+    <x-copyright/>
+</div>
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    @vite('resources/css/app.css')
+</head>
+<body>
+    <nav class="col-span-2 h-24 bg-gray-100  rounded- shadow-lg shadow-slate-400">
+    <div class="flex flex-row">
+
+        <div class="flex">
+        <p class="text-blue-600 uppercase text-6xl translate-y-5 font-bold translate-x-8">I N </p> 
+        <P class="text-blue-950 uppercase text-6xl translate-y-5 font-bold translate-x-12"> S C A L E</P>
+    </div>
+    <div class="absolute inset-y-0 right-96 w-17 -translate-x-32">
+        <label for="search">
+            <input type="text" name="search" id="search"  class="block w-72  
+            mt-7 px-8 border border-slate-950 py-2" placeholder="Search worker">
+        </label>
+    </div>
+    <div class="absolute inset-y-6 right-96 w-17 -translate-x-16">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-12">
+                <path fill-rule="evenodd" d="M5.25 9a6.75 6.75 0 0 1 13.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 0 1-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 1 1-7.48 0 24.585 24.585 0 0 1-4.831-1.244.75.75 0 0 1-.298-1.205A8.217 8.217 0 0 0 5.25 9.75V9Zm4.502 8.9a2.25 2.25 0 1 0 4.496 0 25.057 25.057 0 0 1-4.496 0Z" clip-rule="evenodd" />    
+        </svg>
+    </div>
+
+
+    <div class="absolute inset-y-6 right-96 w-17 -translate-x-3">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-12">
+            <path d="M9.375 3a1.875 1.875 0 0 0 0 3.75h1.875v4.5H3.375A1.875 1.875 0 0 1 1.5 9.375v-.75c0-1.036.84-1.875 1.875-1.875h3.193A3.375 3.375 0 0 1 12 2.753a3.375 3.375 0 0 1 5.432 3.997h3.943c1.035 0 1.875.84 1.875 1.875v.75c0 1.036-.84 1.875-1.875 1.875H12.75v-4.5h1.875a1.875 1.875 0 1 0-1.875-1.875V6.75h-1.5V4.875C11.25 3.839 10.41 3 9.375 3ZM11.25 12.75H3v6.75a2.25 2.25 0 0 0 2.25 2.25h6v-9ZM12.75 12.75v9h6.75a2.25 2.25 0 0 0 2.25-2.25v-6.75h-9Z" />
+        </svg>
+    </div>
+    <div class="absolute inset-y-6 right-80 w-17 -translate-x-6">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-12  ">
+            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 0 1-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 0 1-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 0 1-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584ZM12 18a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" />
+        </svg>
+        </div>
+        <div class="absolute inset-y-4 right-0 w-16 -translate-x-60">
+        <img class="inline-block h-14 w-50 rounded-full ring-2 ring-white" 
+        src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+        </div> 
+
+
+        <div class="flex-col absolute inset-y-4 right-0 w-17 -translate-x-20    ">
+                <p class="font-bold">
+                    James Brooks
+                </p>
+                <p class="font-bold">
+                    Full Stack Developer
+                </p>
+            </div>
+            <div class="absolute inset-y-6 right-0 w-17">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 10" fill="currentColor" class="w-5 h-6">
+                <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z" clip-rule="evenodd" />
+            </svg>
+            </div>
+</div>
+</nav>
+<section class="flex-col border-collapse border border-neutral-950 row-span-1 col-span-1 
+absolute inset-y-0 left-0 flex initial w-64 top-24 bg-blue-500">
+<div>
+<button type ="submit" class="block  text-xl translate-x-50 py-6 rounded-none bg-blue-500 hover:bg-blue-800 
+shadow-blue-500/50 flex-initial w-64"><p class="text-white">Dashboard</p></button>
+</div>
+<div>
+    <button type ="submit" class="block border-t-4 text-xl translate-x-50 py-6 rounded-none bg-blue-500 hover:bg-blue-800 
+    shadow-blue-500/50 flex-initial w-64"><p class="text-white">Workers</p></button>
+</div>
+<div>
+    <button type ="submit" class="block border-t-4 text-xl translate-x-50 py-6 rounded-none bg-blue-500 hover:bg-blue-800 
+    shadow-blue-500/50 flex-initial w-64"><p class="text-white">Payroll</p></button>
+</div>
+<div>
+    <button type ="submit" class="block border-t-4 text-xl  translate-x-50 py-6 rounded-none bg-blue-500 hover:bg-blue-800 
+    shadow-blue-500/50 flex-initial w-64"><p class="text-white">Reports</p></button>
+</div>
+<div>
+<button type ="submit" class="block border-t-4 text-xl translate-x-50 py-6 rounded-none bg-blue-500 hover:bg-blue-800 
+shadow-blue-500/50 flex-initial w-64"><p class="text-white">Filings</p></button>
+</div>
+<div>
+    <button type ="submit" class="block border-t-4 text-xl translate-x-50 py-6 rounded-none bg-blue-500 hover:bg-blue-800 
+    shadow-blue-500/50 flex-initial w-64"><p class="text-white">HR</p></button>
+</div>
+<div>
+    <button type ="submit" class="block border-t-4 text-xl translate-x-50 py-6 rounded-none bg-blue-500 hover:bg-blue-800 
+    shadow-blue-500/50 flex-initial w-64"><p class="text-white">Company</p></button>
+</div>
+<div class="border-t-4 bg-blue-500 hover:bg-blue-800">
+
+</div>
+</section>
+
+<form action="dashboard" class="row-span-2 col-span-2 absolute inset-y-0 right-0 w-10/12 top-24">
+
+    <p class="text-black -mt-3 text-4xl translate-y-24 font-bold w-6/12 translate-x-7 font-mono">Good Afternoon, James</p>
+    <p class="text-black  text-4xl translate-y-3 font-bold w-6/12 translate-x-7 font-mono">Support Team INSCALE</p>
+        <div class=" bg-no-repeat w-6/12 h-48 absolute inset-x-0 top-14 translate-x-3/4 block border border-neutral-950"
+    style="background-image: url(https://media.licdn.com/dms/image/C4D16AQHW0GXtnCyM1w/profile-displaybackgroundimage-shrink_200_800/0/1516238801528?e=2147483647&v=beta&t=2MujuptUtjC8hX_AN1qO8XiyD5PYZyFf2vrFcxEjUhU);">
+    </div>
+    <div class="absolute inset-y-0 left-0 w-6/12 h-80 top-72">
+        <div>
+            <div class="flex items-center space-x-2 text-base">
+                <h4 class="font-semibold text-slate-900 translate-x-3">MY TEAM</h4>
+                <span class="rounded-full bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700 translate-x-5">204</span>
+            </div>
+            <div class="mt-3 flex  overflow-hidden ">
+                <img class="inline-block h-16 w-16 rounded-full ring-1 ring-slate-500 translate-x-4 " src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+                <img class="inline-block h-16 w-16 rounded-full ring-1 ring-slate-500 translate-x-10" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+                <img class="inline-block h-16 w-16 rounded-full ring-1 ring-slate-500 translate-x-16" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt=""/>
+                <img class="inline-block h-16 w-16 rounded-full ring-1 ring-slate-500 translate-x-20" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+                <img class="inline-block h-16 w-16 rounded-full ring-1 ring-slate-500 translate-x-24 " src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+            </div>
+            <div class="mt-3 text-sm font-medium">
+            <a href="#" class="text-blue-500">+ 198 others</a>
+            </div>
+        </div>
+        </div>
+<div class="absolute bottom-0 left-0 h-96 w-5/12  ">
+    <p class="text-slate-900 font-semibold">MY TILES</p>
+    <div class="absolute bottom-0 left-0 h-80 w-full border -translate-y-8 border-slate-400">
+
+    </div>
+
+</div>
+<div class="absolute bottom-8 right-14 h-80 w-5/12 border border-slate-400">
+
+</div>
+</form>
+</body>
+</html>
+
+
+Componments
+<div class=" text-center translate-y-60"> 
+<p>Copyright &copy; {{ now()->year }} INSCALE</p>
+</div>
+
+
+
+web
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+
+
+
+Route::post('/login',[App\Http\Controllers\HomeController::class,'login']) -> name('login');
+
+Route::get('/login',[App\Http\Controllers\HomeController::class,'index']) -> name('home');
+
+Route::get('/forgot-password',[App\Http\Controllers\HomeController::class,'showLinkRequestFrom'])->name('password');
+
+Route::get('/dashboard',[App\Http\Controllers\HomeController::class,'DashboardPageLink'])->name('dashboard');
+
+Route::get('/logout','AuthController@logout')->name('logout');
+
+
+
+
+databseeders
+
+<?php
+
+namespace Database\Seeders;
+
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+
+class DatabaseSeeder extends Seeder
+{
+    /**
+     * Seed the application's database.
+     */
+    public function run(): void
+    {
+        // \App\Models\User::factory(10)->create();
+
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
+        \App\Models\User::create([
+            'name' => 'Gjunaj Jusufoski',
+            'email' => 'gunay_22222@outlook.com',
+            'password' => Hash::make('secret')
+        ]);
+        \App\Models\User::create([
+            'name' => 'James Brooks',
+            'email' => 'james@outlook.com',
+            'password' => Hash::make('passcode')
+        ]);
+    }
+}
+
+
+userfactorey
+
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ */
+class UserFactory extends Factory
+{
+    protected static ?string $password;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'name' => fake()->name(),
+            'email' => fake()->unique()->safeEmail(),
+            'email_verified_at' => now(),
+            'password' => static::$password ??= Hash::make('password'),
+            'remember_token' => Str::random(10),
+        ];
+    }
+
+    /**
+     * Indicate that the model's email address should be unverified.
+     */
+    public function unverified(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'email_verified_at' => null,
+        ]);
+    }
+}
+
+
+
+
+homecontroller
+
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+class HomeController extends Controller
+{
+    public function index(){
+        return view('home');
+    }
+    public function showLinkRequestFrom(){
+        return view('password');
+    }
+    public function DashboardPageLink(){
+        return view('dashboard');
+    }
+    public function logout() {
+        Auth::logout();
+        return redirect('home');
+    }
+    public function login(Request $request){
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required' ]);
+            $credentials = $request->only('email', 'password');
+
+            if(Auth::attempt($credentials)){
+                return redirect()->intended('/dashboard');
+            }
+            return back()->withInput()->withErrors([
+                'error' => 'Invalid Email or password.'
+            ]);
+    }
+}
+
+
+
+
+
+
+
+
+
+1  mysql -u root -p
+    2  history
+    3   sudo /etc/init.d/mysql start
+    4   sudo /etc/init.d/mysql start
+    5  SELECT User, Host FROM mysql.user;
+    6  sudo mysql -u root -p
+    7  mysql --version
+    8  sudo apt install mysql-server
+    9  sudo mysql -u root -p
+   10  sudo mysql -u root -p
+   11  history
+   12  export PATH=${PATH}:/usr/local/mysql/bin
+   13   echo 'export PATH="/usr/local/mysql/bin:$PATH"' >> ~/.bash_profile
+   14  mysql -u root -p
+   15  gun123
+   16  sudo mysql -u root -p
+   17  export PATH=${PATH}:/usr/local/mysql/bin
+   18  echo 'export PATH="/usr/local/mysql/bin:$PATH"' >> ~/.bash_profile
+   19  sudo mysql -u root -p
+   20  SELECT User, Host FROM mysql.user;
+   21  SELECT User, Host FROM mysql.gun123;
+   22  /! clear
+   23  history
+   24  php artisan make:model Flight
+   25  php artisan make:model Listing
+   26  pp\Models\User::update([$a_data => NULL, $a_conditions => NULL])
+   27  update() App\Models\User::update([$a_data => NULL, $a_conditions => NULL])
+   28  php artisan make:Controllers controll
+   29  php artisan make:Controller listing
+   30  php artisan make:migration create_listings_table
+   31  php artisan migrate
+   32  php artisan migrate install
+   33  history
+   34  sudo /etc/init.d/mysql start
+   35  export PATH=${PATH}:/usr/local/mysql/bin
+   36  echo 'export PATH="/usr/local/mysql/bin:$PATH"' >> ~/.bash_profile
+   37  php artisan migrate
+   38  php artisan
+   39  migrate:refresh
+   40  php artisan migrate:refresh
+   41  php artisan migrate:reset
+   42  php artisan migrate:refresh
+   43  php artisan db:seed
+   44  php artisan migrate:refresh
+   45  php artisan migrate:refresh --s
+   46  php artisan migrate:refresh --seed
+   47  php artisan make:model Listing
+   48  php artisan make:controller ListingController
+   49  history\
+   50  cd
+   51  code .
+   52  git clone https://github.com/bradtraversy/laragigs.git
+   53  cd
+   54  code .
+   55  mv ../example-app .
+   56  mv ../laragigs .
+   57  git clone https://github.com/bradtraversy/laragigs.git
+   58  git clone git@bitbucket.org:inscale-dev/laravel-example.git
+   59  history
+   60  cd 
+   61  git clone https://github.com/bradtraversy/laragigs.git
+   62  cd laragigs
+   63  code .
+   64  cd
+   65  cd /test/laravel-example
+   66  git clone git@bitbucket.org:inscale-dev/laravel-example.git
+   67  eval "$(ssh-agent -s)"eval "$(ssh-agent -s)"
+   68  ssh-add gunkey
+   69  ssh-add ~/gunkey
+   70  code .
+   71  cd laravel-example
+   72  code .
+   73  cd
+   74  git -v
+   75  sudo apt install mysql-server
+   76  sudo /etc/init.d/mysql start
+   77  mysql -u root -p
+   78  mysql -u gun123 -p
+   79  php artisan make:Model Listing
+   80  php artisan make:migration create_listings_table
+   81  php artisan migrate
+   82  hisitory
+   83  history
+   84  php artisan migrate:refresh
+   85  php artisan migrate:reset
+   86  php artisan migrate:refresh --s
+   87  php artisan migrate:refresh --seed
+   88  sudo /etc/init.d/mysql start
+   89  export PATH=${PATH}:/usr/local/mysql/bin
+   90  echo 'export PATH="/usr/local/mysql/bin:$PATH"' >> ~/.bash_profile
+   91  php artisan migrate
+   92  php artisan migrate:refresh
+   93  Exit
+   94  php artisan migrate:refresh --path=packages/package/src/database/migrations
+   95  php artisan migrate
+   96  php artisan db:seed
+   97  php artisan migrate:refresh
+   98  php artisan migrate:refresh --seed
+   99  php artisan migrate:fresh
+  100  php artisan migrate
+  101  php artisan tinker
+  102  mysql -u brad -p
+  103  mysql -u brad -p
+  104  mysql -u brad -p
+  105  mysql -u brad -p
+  106  mysql -u brad -p
+  107  mysql -u brad -p
+  108  mysql -u gun123 -p
+  109  history
+  110  git clone https://github.com/bradtraversy/laragigs.git
+  111  git clone https://github.com/bradtraversy/laragigs
+  112  cd
+  113  eval "$(ssh-agent -s)"
+  114  ssh-add gunkey
+  115  ssh-add ~/gunkey
+  116  git clone git@bitbucket.org:inscale-dev/laravel-example.git
+  117  git clone https://github.com/bradtraversy/laragigs.git
+  118  sudo -u gun123 -p
+  119  mysql -u gun123 -p
+  120  mysql -u gun123 -p
+  121  mysql -u gun123 -p
+  122  historyhistory
+  123  history
+  124  sudo mysql -u gun123 -p
+  125  sudo mysql -u gun123 -p
+  126  sudo mysql -u gun123 -p
+  127  sudo mysql -u gun123 -p
+  128  sudo mysql -u gun123 -p
+  129  sudo mysql -u gun123 -p
+  130  sudo mysql -u gun123 -p
+  131  sudo mysql -u gun123 -p
+  132  sudo mysql -u gun123 -p
+  133  sudo mysql -u gun123 -p
+  134  history
+  135  sudo mysql -u gun123 -p
+  136  sudo mysql -u gun123 -p
+  137  php artisan migrate
+  138  php artisan make:migration create_listings_table
+  139  php artisan db:seed
+  140  php artisan migrate
+  141  php artisan migrate:reset
+  142  php artisan migrate:rollback
+  143  php artisan migrate:status
+  144  history
+  145  php artisan migrate:reset
+  146  php artisan migrate:refresh
+  147  php artisan db:seed
+  148  php artisan migrate:refresh
+  149  php artisan make:model Listing
+  150  php artisan migrate
+  151  history
+  152  php artisan db:seed
+  153  php artisan migrate:refresh
+  154  history
+  155  php artisan migrate:refresh
+  156  php artisan migrate
+  157  php artisan migrate:refresh
+  158  php artisan db:seed
+  159  php artisan migrate:refresh
+  160  pp\Models\User::update([$a_data => NULL, $a_conditions => NULL])
+  161  update() App\Models\User::update([$a_data => NULL, $a_conditions => NULL])
+  162  php artisan make:Controller listing
+  163  php artisan migrate
+  164  php artisan make:Controller ListingController
+  165  php artisan make:controller ListingController
+  166  php artisan make:controller ListingControllerr
+  167  php artisan migrate
+  168  php artisan db:seed
+  169  php artisan migrate:refresh
+  170  php artisan migrate:refresh --seed
+  171  php artisan db:seed
+  172  php artisan migrate
+  173  php artisan db:seed
+  174  php artisan migrate:refresh
+  175  php artisan migrate:refresh --seed
+  176  php artisan migrate
+  177  php artisan make:controller ListingController
+  178  php artisan make:model ListingController
+  179  php artisan migrate:refresh --seed
+  180  php artisan migrate:reset 
+  181  php artisan migrate:refresh --path=packages/package/src/database/migrations
+  182  php artisan migrate:refresh --path=vendor/laravel/passport/database/migrations
+  183  php artisan migrate
+  184  php artisan migrate:refresh --seed
+  185  php artisan migrate
+  186  php artisan migrate:reset
+  187  php artisan migrate
+  188  php artisan migrate:refresh
+  189  php artisan migrate:refresh\
+  190  php artisan migrate:refresh
+  191  php artisan migrate:refresh --seed
+  192  php artisan migrate
+  193  php artisan migrate:reset
+  194  php artisan migrate
+  195  php artisan migrate:refresh --seed
+  196  php artisan migrate:refresh
+  197  php artisan db:seed
+  198  php artisan make:factory ListingFactor
+  199  php artisan db:seed
+  200  php artisan migrate:refresh --seed
+  201  php artisan make:factory ListingFactory
+  202  php artisan migrate:refresh --seed
+  203  php artisan migrate:reset
+  204  php artisan migrate
+  205  php artisan migrate:refresh --seed
+  206  php artisan db:seed
+  207  php artisan migrate:reset
+  208  php artisan migrate
+  209  php artisan db:seed
+  210  php artisan migrate:refresh --seed
+  211  php artisan db:seed
+  212  php artisan migrate:refresh --seed
+  213  php artisan migrate
+  214  php artisan migrate:reset
+  215  php artisan migrate
+  216  php artisan migrate:refresh --seed
+  217  php artisan db:seed
+  218  history
+  219  php artisan migrate:reset
+  220  php artisan migrate
+  221  php artisan db:seed
+  222  php artisan migrate:refresh
+  223  php artisan migrate:refresh --seed
+  224  php artisan migrate:refresh
+  225  php artisan migrate
+  226  php artisan migrate:reset
+  227  php artisan migrate
+  228  php artisan migrate:refresh
+  229  php artisan migrate:refresh --seed
+  230  php artisan migrate:reset
+  231  php artisan migrate
+  232  php artisan db:seed
+  233  php artisan migrate
+  234  php artisan migrate:reset
+  235  php artisan migrate
+  236  php artisan route:list
+  237  php artisan route:list -v
+  238  history
+  239  php composer-setup.php
+  240  php -r "unlink('composer-setup.php');"
+  241  sudo mv composer.phar /usr/local/bin/composer
+  242  sudo mv composer.phar /usr/local/bin/composer
+  243  sudo mv composer.phar /usr/local/bin/composer
+  244  composer create-project laravel/laravel example-app
+  245  php -v
+  246  ll -a
+  247  cd ./example-app
+  248  code .
+  249  history |grep git
+  250  git clone https://github.com/bradtraversy/laragigs.git
+  251  cd laragigs
+  252  code .
+  253  php artisan make:views about-us.blade.php
+  254  php artisan make:view about-us.blade.php
+  255  php artisan migrate
+  256  ./vendor/bin/sail artisan migrate
+  257  php artisan migrate
+  258  history
+  259  sudo /etc/init.d/mysql start
+  260  php ,artisan migrate
+  261  php artisan migrate
+  262  php artisan migrate:reset
+  263  php artisan migrate:refresh
+  264  php artisan migrate
+  265  php artisan migrate:refresh
+  266  php artisan migrate
+  267  npm install -D tailwindcss
+  268  composer create-project laravel/laravel my-project
+  269  cd my-project
+  270  npm install -D tailwindcss postcss autoprefixer
+  271  cd
+  272  cd /test/laravel-example
+  273  php artisan migrate:refresh
+  274  history
+  275  sudo /etc/init.d/mysql start
+  276  php artisan migrate
+  277  php artisan migrate:reset
+  278  php artisan migrate:refresh
+  279  npm init -y
+  280  npm install -D tailwindcss postcss-cli autoprefixer
+  281  npm i
+  282  npm install --force
+  283  npm i -f 
+  284  sudo npm install --force
+  285  npm --v
+  286  npm cache clean
+  287  npm install npm -g
+  288  npm cache clean --force
+  289  npm cache verify
+  290  npm install
+  291  sudo npm install
+  292  git push
+  293  history
+  294  history | grep eval
+  295  eval "$(ssh-agent -s)"
+  296  history | grep ssh-add
+  297  ssh-add ~/gunkey
+  298  git push
+  299  ssh -T git@bitbucket.org
+  300  git push
+  301  history
+  302  eval "$(ssh-agent -s)"
+  303  git push
+  304  npm install
+  305  ll --a
+  306  ll -a
+  307  ls -l -a
+  308  rm -R laravel-example
+  309  sudo rm -R laravel-example
+  310  git clone git@bitbucket.org:inscale-dev/laravel-example.git
+  311  history | grep eval
+  312   eval "$(ssh-agent -s)"
+  313  history | grep ssh
+  314  eval "$(ssh-agent -s)"
+  315   ssh-add ~/gunkey
+  316  git clone git@bitbucket.org:inscale-dev/laravel-example.git
+  317  cd laravel-example
+  318  code .
+  319  npm cache clean -f
+  320  npm install
+  321  composer install
+  322  cd ~/laravel-example
+  323  npm install
+  324  cat /etc/wsl.conf
+  325  npm config set unsafe-perm=true
+  326  npm uninstall
+  327  sudo chown gun123 package-lock.json
+  328  sudo chown gun123 package-lock.json
+  329  ls
+  330  sudochown gun123 node_modules
+  331  npm install
+  332  rm -R node_modules
+  333  ls
+  334  npm install
+  335  https://teams.microsoft.com/l/message/19:683a1b93-c9de-4acb-8a67-46060dc54c46_c74524f5-3d36-4ec7-9201-86ef4139487b@unq.gbl.spaces/1700750929011?context=%7B%22contextType%22%3A%22chat%22%7
+  336  echo "$PATH"
+  337  which npm
+  338  history
+  339  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - && sudo apt-get install -y nodejs
+  340  sudo apt-get update
+  341  sudo apt-get install -y ca-certificates curl gnupg
+  342  sudo mkdir -p /etc/apt/keyrings
+  343  curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+  344  NODE_MAJOR=18
+  345  echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+  346  sudo apt-get update
+  347  sudo apt-get install nodejs -y
+  348  which npm
+  349  npm install
+  350  echo "$PATH"
+  351  PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')
+  352  echo "$PATH"
+  353  npm install
+  354  ls
+  355  code .
+  356  code .
+  357  PATH=/usr/local/mysql/bin:/usr/local/mysql/bin:/usr/local/mysql/bin:/usr/local/mysql/bin:/usr/local/mysql/bin:/usr/local/mysql/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Users/GünayYusufoski/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/GünayYusufoski/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/GünayYusufoski/AppData/Local/Programs/Git/cmd:/snap/bin
+  358  PATH="/usr/local/mysql/bin:/usr/local/mysql/bin:/usr/local/mysql/bin:/usr/local/mysql/bin:/usr/local/mysql/bin:/usr/local/mysql/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Users/GünayYusufoski/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/GünayYusufoski/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/GünayYusufoski/AppData/Local/Programs/Git/cmd:/snap/bin"
+  359  code .
+  360  hisotry
+  361  history
+  362  sudo service mysql start
+  363  npm install -D tailwindcss postcss autoprefixer
+  364  npx tailwindcss init -p
+  365  npm run dev
+  366  history
+  367  eval "$(ssh-agent -s)"
+  368  eval "$(ssh-agent -s)" && ssd-add ~/gunkey
+  369  ssh-add ~/gunkey
+  370  git push
+  371  hisotry
+  372  history
+  373  ll -a
+  374  wsl -l -v
+  375  sudo apt update && sudo apt full-upgrade
+  376  sudo add-apt-repository ppa:ondrej/php
+  377  sudo apt install ca-certificates
+  378  sudo add-apt-repository ppa:ondrej/php
+  379  sudo update-ca-certificates --fresh
+  380  export SSL_CERT_DIR=/etc/ssl/certs
+  381  sudo add-apt-repository ppa:ondrej/php
+  382  sudo apt install --only-upgrade ca-certificates
+  383  sudo add-apt-repository ppa:ondrej/php5-5.6
+  384  php -v
+  385  exportAPT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
+  386  sudo add-apt-repository ppa:ondrej/php
+  387  git -v
+  388  sudo apt install -y git php8.2
+  389  sudo apt install -y git php
+  390  sudo apt-get install php php-cli php-{bz2,curl,mbstring,intl,zip,mysql,xdebug}
+  391  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+  392  udo apt-get install -y git php php-curl php-xml php-zip php-mbstring php-gd php-sqlite3 php-mysql php-xdebug
+  393  wsl -l -v
+  394  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+  395  php composer-setup.php
+  396  php -r "unlink('composer-setup.php');"
+  397  sudo mv composer.phar /usr/local/bin/composer
+  398  wsl -l -v
+  399  sudo mv composer.phar /usr/bin/composer
+  400  code .
+  401  sudo apt-get update
+  402  sudo apt-get intall curl
+  403  sudo apt-get install curl
+  404  sudo apt-get install php php-curl
+  405  curl -sS https://getcomposer.org/installer -o composer-setup.php
+  406  php
+  407  hisotry
+  408  history
+  409  php -v
+  410  wsl -l -v
+  411  sudo apt-get install php8.2 php8.2-cli php8.2-{bz2,curl,mbstring,intl,zip,mysql,xdebug}
+  412  sudo apt update && sudo apt upgrade -y
+  413  sudo apt install lsb-release ca-certificates apt-transport-https software-properties-common -y
+  414  sudo add-apt-repository ppa:ondrej/php
+  415  php composer-setup.php
+  416  php -r "unlink('composer-setup.php');"
+  417  sudo mv composer.phar /usr/local/bin/composer
+  418  php -v
+  419  ll -a
+  420  git -v
+  421  wsl --set-default-version 2
+  422  ls
+  423  git clone git@bitbucket.org:inscale-dev/apps-dashboard.git
+  424  eval "$(ssh-agent -s)" && ssd-add ~/gunkey
+  425  eval "$(ssh-agent -s)"
+  426  ssh-add ~/gunkey
+  427  git clone git@bitbucket.org:inscale-dev/apps-dashboard.git
+  428  cd apps-dashboard/
+  429  code .
+  430  dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+  431  wsl --install
+  432  sudo apt --install wsl
+  433   sudo apt install mysql-server
+  434   mysql --version
+  435   sudo /etc/init.d/mysql start
+  436  mysql -u root -p
+  437  mysql -u root -p
+  438  mysql -u root -p
+  439  mysql -u root -p
+  440  mysql -u root -p
+  441  sudo mysql -u root -p
+  442  curl -s "https://laravel.build/example-app" | bash
+  443  history
+  444  php -v 
+  445  composer create-project laravel/laravel example-app
+  446  cd apps-dashboard
+  447  composer create-project laravel/laravel example-app
+  448  cd example-app/c
+  449  cd example-app/c
+  450  cd example-app
+  451  php artisan serve
+  452  php artisan migrate
+  453   export PATH=${PATH}:/usr/local/mysql/bin
+  454   echo 'export PATH="/usr/local/mysql/bin:$PATH"' >> ~/.bash_profile
+  455  sudo /etc/init.d/mysql start
+  456  php artisan migrate
+  457  code .
+  458  composer install/composer update 8.1.26
+  459  composer update 8.1.26
+  460  composer update
+  461  php update
+  462  php -v
+  463  wsl --set-default-version 2
+  464  hisotry
+  465  history
+  466  history |grep composer
+  467  php composer-setup.php
+  468  composer install
+  469  history |grep php
+  470  history
+  471  eval "$(ssh-agent -s)" && ssd-add ~/gunkey
+  472  git push
+  473  eval "$(ssh-agent -s)" && ssh-add ~/gunkey
+  474  git push
+  475  history
+  476  sudo service mysql start
+  477  npm install -D tailwindcss postcss autoprefixer
+  478  npx tailwindcss init -p
+  479  npm run dev
+  480  eval "$(ssh-agent -s)" && ssh-add ~/gunkey
+  481  git push
+  482  history grep | service
+  483  grep | service
+  484  history grep
+  485  history
+  486  php atisan config:chache
+  487  php atisan config:cache
+  488  exit
+  489  sudo service mysql start
+  490  php artisan make:Model Loginpage
+  491  php artisan make:Model listing
+  492  php artisan make:factories ListingFactory
+  493  php artisan make:migration 
+  494  php artisan make:migration create_listings_table
+  495  hisotry
+  496  history
+  497  history
+  498  history grep | show
+  499  history grep | tables
+  500  history grep | service
+  501  hisotry
+  502  history
+  503  npm run dev
+  504  sudo service start mysql
+  505  sudo service mysql start
+  506  npm install -D @tailwindcss/typography
+  507  sail artisan migrate --seed
+  508  ./vendor/bin/sail
+  509  sail artisan migrate --seed
+  510  php artisan migrate --seed
+  511  start mysql
+  512  sudo service mysql start
+  513  select name.email.password from users;
+  514  select name,email,password from users;
+  515  SHOW TABLES;
+  516  sudo service mysql start
+  517  show tables;
+  518  users tables;
+  519  history
+  520  grep | service
+  521  grep | ubuntu
+  522  history
+  523  npm run dev
+  524  history
+  525  git flow init
+  526  sudo apt-get install git-flow
+  527  git flow init
+  528  git flow feature start APPS-7-CreateAppsDashboardApplication
+  529  git push
+  530  eval "$(ssh-agent -s)" && ssh-add ~/gunkey
+  531  git push
+  532  git push --set-upstream origin feature/APPS-7-CreateAppsDashboardApplication
+  533  git checkout develop
+  534  git pull
+  535  git checkout feature/APPS-7-CreateAppsDashboardApplication && git merge develop
+  536  git status
+  537  git push
+  538  php artisan make:auth
+  539  php artisan make:controller HomeController
+  540  php artisan make:views password.request
+  541  php artisan make:view password.request
+  542  php artisan make:view password
+  543  php artisan migrate
+  544  php artisan db:seed
+  545  composer install
+  546  php artisan db:seed
+  547  php artisan migrate
+  548  php artisan db:seed
+  549  php artisan migrate
+  550  php artisan db:seed
+  551  history
+  552  npm run dev
+  553  sudo service mysql start
+  554  hisotry
+  555  history
+  556  sudo service start mysql
+  557  run npm devдистрибутивен закон
+  558               
+  559  npm run dev
+  560  sudo service start mysql
+  561  php artisan migrate
+  562  composer install
+  563  php artisan db:seed
+  564  php artisan migrate
+  565  sudo service start mysql
+  566  mysql
+  567  sudo service mysql start
+  568  eval "$(ssh-agent -s)" && ssh-add ~/gunkey
+  569  git push
+  570  git flow feature finish APPS-7-CreateAppsDashboardApplication
+  571  git push
+  572  git status
+  573  hisotry
+  574  history
+
+
+
+
+
+
+
+extensions
+
+Todo tree
+Tailwind CSS IntelliSense
+PHP Profiler
+PHP IntelliSense
+PHP
+Live server
+Laravel balde fortmatter
+Laravel Blade
+IntelliPHP - AI Autocomplete for PHP
+indent-rainbow
+GitLens — Git supercharged
+Composer
+Composer
+Code Spell Checker
+Auto Complete Tag
+WSL
+Microsoft Edge Tools for VS Code
+Material Icon Theme
+Laravel Model Snippets
+JavaScript (ES6) code snippets
+Bootstrap 4, Font awesome 4, Font Awesome 5 Free & Pro snippets
+Auto Rename Tag
+Auto Close Tag
+
+
+
+
+
+
+
+
+
